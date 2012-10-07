@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kp.test.comuni.mapper.ComuniMapper">
+ 
+    <resultMap id="comuneResultMap" type="Comune">
+        <result column="ID" property="id"/>
+        <result column="CODICE" property="codice"/>
+        <result column="COD_REGIONE" property="codRegione"/>
+        <result column="COD_PROVINCIA" property="codProvincia"/>
+        <result column="COD_COMUNE" property="codComune"/>
+        <result column="DESCR" property="nomeComune"/>
+        <result column="CAP" property="cap"/>
+    </resultMap>
+ 
+    <select id="getComune" parameterType="int" resultMap="comuneResultMap">
+SELECT  ID
+      , CODICE
+      , COD_REGIONE
+      , COD_PROVINCIA
+      , COD_COMUNE
+      , DESCR
+      , CAP
+  FROM CAP_COMUNI
+        WHERE id = #{id}
+    </select>
+
+</mapper>

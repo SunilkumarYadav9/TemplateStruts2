@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!-- Le proprietà (nome=valore) nel file di seguito specificato possono essere 
+	usate come segnaposto in questo file (es. “${driver}”. Il file è di solito 
+	relativo al classpath ed è opzionale. -->
+<!--properties resource="examples/sqlmap/maps/SqlMapConfigExample.properties" 
+	/ -->
+	
+<configuration>
+	<typeAliases>
+               <typeAlias alias="Comune" type="com.kp.test.comuni.Comuni"/>
+    </typeAliases>
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver"	value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+				<property name="url"	value="jdbc:sqlserver://INSERT_HOST;databaseName=INSERT_DB_NAME" />
+
+				<property name="username" value="INSERT_USERNAME" />
+				<property name="password" value="INSERT_PASSWORD" />
+			</dataSource>
+		</environment>
+	</environments>
+	
+	<mappers>
+		<mapper resource="com/kp/test/comuni/mapper/ComuniMapper.xml" />
+		
+	</mappers>
+</configuration>
+
+
+
+
+
+
+
+
+
+
